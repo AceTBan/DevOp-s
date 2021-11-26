@@ -1,0 +1,120 @@
+create database caisse_enregistreuse;
+
+use caisse_enregistreuse;
+
+CREATE TABLE articles (
+    id_articles INT PRIMARY KEY AUTO_INCREMENT,
+    nom_article VARCHAR(50) NOT NULL,
+    prix_article DECIMAL(16 , 2 ) NOT NULL
+);
+CREATE TABLE tickets (
+    id_tickets INT PRIMARY KEY AUTO_INCREMENT,
+    date_ticket DATETIME,
+    id_vendeurs INT NOT NULL
+
+);
+
+CREATE TABLE vendeurs (
+    id_vendeurs INT PRIMARY KEY AUTO_INCREMENT,
+    nom_vendeur VARCHAR(25),
+    prenom_vendeur VARCHAR(25)
+);
+
+
+create table posseder (
+id_articles int ,
+id_tickets int ,
+primary key(id_articles,idtickets),
+	FOREIGN KEY (id_articles)
+        REFERENCES articles (id_articles),
+    FOREIGN KEY (id_tickets)
+        REFERENCES tickets (id_tickets)
+);
+
+
+use caisse_enregistreuse;
+insert into articles (nom_article,prix_article) values 
+("Clé USB 64Go",'9.99') ,
+("Imprimante Multifonction",'89.99'),
+("Tablette Tactile",'109.98'),
+("MacBook Pro Apple",'2248.99'),
+("Répéteur Amplificateur WiFi",'28.99')
+;
+
+
+use caisse_enregistreuse;
+insert into vendeurs (nom_vendeur,prenom_vendeur) values 
+("vestibulum ","Owen"),
+("Aenean  ","Baptiste"),
+("ridiculus  ","Lyna"),
+("faucibus  ","Léonie"),
+("dapibus","Joy")
+;
+
+
+use caisse_enregistreuse;
+insert into tickets (date_ticket,id_vendeurs) values 
+('2020-11-25 03:14:07',5),
+('2021-01-10 16:32:47',2),
+('2020-12-09 21:36:32',4),
+('2021-07-15 15:27:23',1),
+('2020-03-19 11:33:21',3)
+;
+
+
+use caisse_enregistreuse;
+insert into posseder (id_articles,id_tickets,quantite) values 
+(1,3,'5'),
+(3,2,'2'),
+(5,4,'3'),
+(2,5,'1'),
+(4,1,'4')
+;
+
+
+                                        #requete
+use caisse_enregistreuse;
+
+#select * from tickets;
+
+#select prix_article from articles
+#inner join tickets on id_articles = id_tickets;
+
+#select nom_article,prix_article,id_vendeurs from articles
+#inner join tickets on id_articles = id_tickets
+#where id_vendeurs = 3;
+
+#select nom_vendeur,nom_article,prix_article,date_ticket 
+#from vendeurs
+#inner join tickets on vendeurs.id_vendeurs = tickets.id_vendeurs
+#inner join posseder on tickets.id_tickets = posseder.id_tickets
+#inner join articles on posseder.id_articles = articles.id_articles;
+
+
+
+
+
+
+
+
+use caisse_enregistreuse;
+
+#select * from tickets;
+
+#select prix_article from articles
+#inner join tickets on id_articles = id_tickets;
+
+#select nom_article,prix_article,id_vendeurs from articles
+#inner join tickets on id_articles = id_tickets
+#where id_vendeurs = 3;
+
+#select nom_vendeur,nom_article,prix_article,date_ticket 
+#from vendeurs
+#inner join tickets on vendeurs.id_vendeurs = tickets.id_vendeurs
+#inner join posseder on tickets.id_tickets = posseder.id_tickets
+#inner join articles on posseder.id_articles = articles.id_articles;
+
+#select avg(prix_article) from articles
+
+#SELECT SUM(prix_article) 
+#FROM articles;

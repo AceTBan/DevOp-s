@@ -1,0 +1,25 @@
+# Créer une liste
+#[] -> Liste vide
+#[1,4,7] -> Trois élément dedans
+
+l = [1,4,7,8,5,2,3,6,9]
+# Les éléments sont rangés dans des cases qui sont automatiquement numérotées, en partant de 0.
+
+# Accéder à un élément en particulier :
+l[2] # L'élément numéro 2 (le troisième).
+
+l[2] = 99
+print(l[0]*2)
+
+# Ajouter un élément à la fin de la liste :
+l.append(10)
+print(l)
+
+# Retirer le dernier élément et retourner sa valeur
+l.pop()
+print(l)
+print(l.pop())
+print(l)
+
+# Taille de la liste
+print(len(l))

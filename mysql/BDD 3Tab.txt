@@ -1,0 +1,24 @@
+create database Exercice1;
+use Exercice1;
+
+CREATE TABLE responsables (
+    id_responsable INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom_responsable VARCHAR(25),
+    prenom_responsable VARCHAR(25),
+    mail_responsable VARCHAR(15),
+    ville_agence VARCHAR(25)
+);
+
+CREATE TABLE locaux (
+    id_locaux INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    ville_locaux varchar(50),
+    CP_locaux varchar(25),
+    id_responsable int
+);
+
+CREATE TABLE voitures (
+    id_voiture INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    location_voiture VARCHAR(3),
+    marque_voiture VARCHAR(25),
+    couleur_voiture VARCHAR(20)
+);

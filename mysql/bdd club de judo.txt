@@ -1,0 +1,92 @@
+create database clubjudo;
+use clubjudo;
+create table couleur_ceinture (
+id_couleur_ceinture int primary key auto_increment,
+couleur varchar(20) not null
+);
+
+create table adherent (
+id_adherent int primary key auto_increment,
+nom varchar(50) not null,
+prenom varchar(50) not null,
+date_naissance date,
+sexe varchar(5),
+id_couleur_ceinture int not null,
+foreign key (id_couleur_ceinture) references couleur_ceinture (id_couleur_ceinture)
+);
+
+create table competition (
+id_competition int primary key auto_increment,
+nom_competition varchar(50) not null,
+date_debut date,
+date_fin date
+);
+
+create table participer (
+id_competition int,
+id_adherent int,
+primary key (id_competition, id_adherent),
+foreign key (id_competition) references competition (id_competition),
+foreign key (id_adherent) references adherent (id_adherent)
+);
+
+
+
+
+
+
+
+
+
+use clubjudo;
+insert into couleur_ceinture (couleur) value
+("blanche"),
+("demi-jaune"),
+("jaune"),
+("demi_orange"),
+("orange"),
+("demi-verte"),
+("verte"),
+("bleue"),
+("marron"),
+("noire"),
+("rouge-blanc"),
+("rouge")
+;
+
+
+use clubjudo;
+
+insert into adherent (nom,prenom,sexe,id_couleur_ceinture) value
+("quisquam","Liam","homme","10"),
+("Neque ","Emma","femme","5"),
+("dolorem ","Noah","homme","6"),
+("adipisci ","Olivia","femme","12"),
+("quia ","Alice","femme","4")
+;
+
+
+use clubjudo;
+insert into competition (nom_competition,date_debut,date_fin) value
+("12ème OPEN INTERNATIONAL de KATA",'2021-11-06','2021-11-07'),
+("Championnats D'Europe U23",'2021-11-05','2021-11-07'),
+("CHAMPIONNATS D'EUROPE PAR EQUIPE MIXTE",'2021-11-27','2021-11-28'),
+("CHAMPIONNAT DE FRANCE INDIVIDUEL 1D",'2021-11-12','2021-11-13'),
+("CHAMPIONNAT DE FRANCE PAR ÉQUIPES DE CLUBS 1D",'2021-11-14','2021-11-15')
+;
+
+
+use clubjudo;
+insert into participer (id_competition,id_adherent) value
+("3","50"),
+("5","51"),
+("2","53"),
+("4","52"),
+("1","54")
+;
+
+
+use clubjudo;
+select nom,prenom,nom_competition from adherent
+inner join competition on adherent.id_adherent=competition.id_competition
+;

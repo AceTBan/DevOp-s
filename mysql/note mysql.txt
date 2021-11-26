@@ -1,0 +1,128 @@
+										#creer une BBD
+
+create database test4;
+
+use test4;
+
+							#creer & ajouter des information a la table :
+
+use test4;
+
+CREATE TABLE users (
+    
+id_user INT NOT NULL,
+   
+name_user VARCHAR(30) NOT NULL,
+    
+pwd_user VARCHAR(30) NOT NULL,
+    
+mail_user VARCHAR(30) NOT NULL,
+    
+age_user TINYINT DEFAULT NULL
+
+);
+
+
+use test4;
+
+create table town (
+id_town int not null,
+nom_town varchar(50),
+cp_town varchar(25)
+);
+
+											#cl� primaire:
+	
+use test4;					#acceder a la BBD
+
+alter table users			#modifier la table
+
+add primary key (id_user);	#ajouter une cle primaire
+
+											#auto incrementation:
+
+use test4;
+
+alter table users
+
+modify id_user int auto_increment not null;
+
+											#ajouter une colone:
+
+use test4;
+
+alter table users
+
+add column id_town int not null;
+
+
+											#foreign key:
+
+use test4; 			#utilise la BBD
+
+alter table users 													#modifie la table afin de lui ajouter la forein key 		
+add constraint foreign key (id_town) references town (id_town);		#(r�ceptacle de la table a modifier) avec pour reference la table d'ou proviens (le champ a associer)
+
+
+use exercice1;
+
+alter table locaux
+
+add constraint foreign key (id_responsable) references responsables (id_responsable);
+
+
+											#visualisation table:
+
+use test4;
+select * from users
+
+											#inserer des donnees:
+
+use facturation;
+
+insert into villes (nom_ville,codePostal_ville) values 
+
+("toulouse","31000") ,					#premiere ligne
+("paris","75000");						#deuxieme ligne
+
+
+use facturation;
+insert into clients (nom_client,prenom_client,telephone_client,id_ville) values 
+("ESTEBAN","David","0678945123","1") ,
+("SPARROW","Jack","0781643592","2");
+
+use facturation;
+insert into factures (numero_facture,id_client) values 
+("150806-005",1) ,
+("196050-044",2);
+
+
+use Exercice1;
+insert into responsables (nom_responsable,prenom_responsable,mail_responsable,ville_agence) values 
+("SMITH","john","johnSMITH@hmail.c0m","NICE") ;
+
+insert into locaux (ville_locaux,CP_locaux) value
+("nice","06000"),
+("antibes","06600");
+
+insert into voitures(location_voiture,marque_voiture,couleur_voiture) value
+("oui","peugeot","rouge"),
+("non","opel","jaune");
+
+
+use Exercice1;
+insert into responsables (nom_responsable,prenom_responsable,mail_responsable,ville_agence) values 
+("FourWheels","Joulou","toukilou@atoutroule.fr","Toukilou") ;
+
+insert into locaux (ville_locaux,CP_locaux) value
+("avenue blobloca","22 222");
+
+insert into voitures(location_voiture,marque_voiture,couleur_voiture) value
+("non","farp kagi","orange"),
+("non","fiot 7014","jaune");
+
+
+									# supprimer une ligne 
+use exercice1;
+delete from voitures
+where id_voiture=1

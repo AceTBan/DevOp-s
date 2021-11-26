@@ -1,0 +1,29 @@
+create database facturation;
+use facturation;
+
+CREATE TABLE clients (
+    id_client INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom_client VARCHAR(25),
+    prenom_client VARCHAR(25),
+    telephone_client VARCHAR(15),
+    id_ville INT
+);
+
+CREATE TABLE factures (
+    id_facture INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    numero_facture INT,
+    id_client INT
+);
+
+CREATE TABLE villes (
+    id_ville INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom_ville VARCHAR(25),
+    codePostal_ville VARCHAR(20)
+);
+
+alter table clients
+add constraint foreign key (id_ville) references villes  (id_ville);
+
+alter table factures
+add constraint foreign key (id_client) references clients (id_client);
+

@@ -1,0 +1,18 @@
+#afficher toutes les ceintures
+#afficher le nom et le prenom de tous les judoka
+#afficher les judoka femme
+#afficher les competitions de 2020
+#afficher les noms des competition par ordre croissant
+#afficher le prenom des judoka qui commence par la lettre "r" et qui on tplus de 25ans 
+
+use clubjudo ;
+
+#select * from couleur_ceinture;
+#select nom,prenom from adherent;
+#select * from adherent where sexe="f";
+#select * from competition where date_debut like "2022%";
+#select nom_competition from competition order by nom_competition asc;
+#select nom_competition,date_debut from competition order by date_debut asc;
+
+select prenom from adherent where date_naissance<"1996-01-01" and prenom like ("r%");
+

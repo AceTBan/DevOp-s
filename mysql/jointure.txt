@@ -1,0 +1,18 @@
+select prenom,couleur from adherent 
+inner join couleur_ceinture on adherent.id_couleur_ceinture=couleur_ceinture.id_couleur_ceinture;
+
+# select champ1,champ2 from tableA
+# inner join tableB on tableA.foreignKey = tableB.primaryKey ;
+
+                    # jointure plus une condition :
+select prenom,couleur,sexe from adherent 
+inner join couleur_ceinture on adherent.id_couleur_ceinture=couleur_ceinture.id_couleur_ceinture
+where sexe="homme"
+;
+
+
+
+select date_naissance,couleur from adherent
+inner join couleur_ceinture on adherent.id_couleur_ceinture=couleur_ceinture.id_couleur_ceinture
+where couleur="rouge"
+;
