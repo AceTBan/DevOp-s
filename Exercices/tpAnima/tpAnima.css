@@ -1,0 +1,25 @@
+.azerty:hover{
+    transition: all 2s ease-in-out;
+transform: scale(2)
+}
+.azerty{
+    transform: rotate(0deg);
+    transition: all 2s ease-in-out;
+}
+.azerty:active{
+transition: all 2s ease-in-out;
+transform: rotate(90deg);
+}
+
+ .am:active{
+   transform: translateX(40deg);
+ }
+
+ p{
+   width: 250px;
+   height: 480px;
+   transform: scale(0,5);
+
+   transform: rotate(36deg);
+
+ }

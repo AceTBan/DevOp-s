@@ -1,0 +1,148 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FFF0DE;
+  margin: 0;
+  padding: 0;
+}
+
+/*CSS FORMULAIRE*/
+body h1 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+input {
+  display: inline-block;
+  width: 150px;
+}
+
+label {
+  display: inline-block;
+  text-align: justify-all;
+  width: 150px;
+}
+
+/*correspond aux boutons du formulaire + autre boutons du site au besoin*/
+input[type=button], input[type=submit], input[type=reset] {
+
+    background-color: #023047;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+
+  }
+
+
+/*au passage de la souris, on gère l'opacité de la couleur des boutons*/
+input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #023047a6
+}
+
+
+
+h3 {
+    color: #FFB35C;
+    margin-bottom: 5px;
+
+}
+
+h3 p {
+    text-align: justify;
+}
+
+/*CSS FOOTER*/
+footer {
+  display: flex;
+  grid-gap: 50px;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/*Css Header Index*/
+header input {
+  height: 50px;
+  align-self: center;
+}
+
+header {
+  background-color: #023047e3;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 65px;
+  position: relative;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  margin-top: -65px;
+}
+
+h2 {
+  color: #023047;
+}
+
+header input[type=button] {
+  background-color: #FFB35C;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type=button]:hover {
+  background-color: #FF951B
+}
+
+.video1 {
+  width: auto;
+  height: auto;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
+  align-self: center;
+}
+
+.video2 {
+  width: auto;
+  height: auto;
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+  align-self: center;
+}
+
+.visu {
+  width: 32%;
+  height: auto;
+  grid-column: 2;
+  grid-row: 3;
+  align-self: center;
+}
+video{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
